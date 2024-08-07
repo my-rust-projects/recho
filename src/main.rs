@@ -1,3 +1,9 @@
+use recho::Config;
+use std::env;
+
 fn main() {
-    println!("Hello, world!");
+    let args: Vec<String> = env::args().collect();
+    let config = Config::build(&args).unwrap();
+
+    recho::run(config).unwrap();
 }
